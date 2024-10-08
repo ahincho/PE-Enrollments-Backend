@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Enrollments
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/enrollments
+    username: postgres
+    password: postgres
