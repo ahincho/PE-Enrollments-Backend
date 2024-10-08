@@ -1,10 +1,12 @@
 package com.unsa.services.academics.users.application.services;
 
+import com.unsa.services.academics.commons.CustomException;
 import com.unsa.services.academics.users.application.ports.in.UserServicePort;
 import com.unsa.services.academics.users.application.ports.out.UserPersistencePort;
 import com.unsa.services.academics.users.domain.exceptions.UserNotFoundException;
 import com.unsa.services.academics.users.domain.models.User;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import reactor.core.publisher.Flux;
@@ -18,7 +20,12 @@ public class UserService implements UserServicePort {
     }
     @Override
     public Mono<User> createOneUser(User user) {
-        return this.userPersistencePort.saveOneUser(user);
+        Mono<Boolean> existsEmail = this.userPersistencePort.getOneUserByEmail(user.getEmail()).hasElement();
+        return existsEmail.flatMap(
+            exists -> exists ?
+                Mono.error(new CustomException(HttpStatus.BAD_REQUEST, "User with email " + user.getEmail() + " already exists")) :
+                this.userPersistencePort.saveOneUser(user)
+        );
     }
     @Override
     public Flux<User> getAllUsers() {

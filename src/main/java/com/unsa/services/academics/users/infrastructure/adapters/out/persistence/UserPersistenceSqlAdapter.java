@@ -29,6 +29,10 @@ public class UserPersistenceSqlAdapter implements UserPersistencePort {
         return this.userR2dbcRepository.findById(id).map(UserR2dbcMapper::toDomain);
     }
     @Override
+    public Mono<User> getOneUserByEmail(String email) {
+        return this.userR2dbcRepository.findByEmail(email).map(UserR2dbcMapper::toDomain);
+    }
+    @Override
     public Mono<Void> updateOneUser(Long id, User user) {
         return null;
     }
