@@ -26,8 +26,9 @@ public class UserService implements UserServicePort {
     }
     @Override
     public Mono<User> getOneUserById(Long id) {
-        return this.userPersistencePort.getOneUserById(id)
-            .switchIfEmpty(Mono.error(new UserNotFoundException("User with id " + id + " not found")));
+        return this.userPersistencePort
+            .getOneUserById(id)
+            .switchIfEmpty(Mono.error(new UserNotFoundException(id)));
     }
     @Override
     public Mono<Void> updateOneUser(Long id, User user) {
