@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: enrollments
+  profiles:
+    active: dev
