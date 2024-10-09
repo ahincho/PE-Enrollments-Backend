@@ -9,9 +9,8 @@ CREATE TABLE courses (
 -- Laboratories Table
 CREATE TABLE laboratories (
     id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(64) NOT NULL,
-    description TEXT,
     course_id BIGINT NOT NULL,
+    group VARCHAR(2) NOT NULL,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
