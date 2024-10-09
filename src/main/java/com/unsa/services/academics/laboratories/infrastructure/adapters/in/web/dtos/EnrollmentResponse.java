@@ -1,4 +1,4 @@
-package com.unsa.services.academics.laboratories.domain.models;
+package com.unsa.services.academics.laboratories.infrastructure.adapters.in.web.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +11,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Laboratory {
+public class EnrollmentResponse {
     private Long id;
-    private Long courseId;
-    private String section;
-    private Integer capacity;
+    private Long userId;
+    private Long laboratoryId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

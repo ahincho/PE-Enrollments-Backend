@@ -3,7 +3,7 @@ package com.unsa.services.academics.users.infrastructure.adapters.out.persistenc
 import com.unsa.services.academics.users.domain.models.User;
 import com.unsa.services.academics.users.infrastructure.adapters.out.persistence.entities.UserEntity;
 
-public class UserR2bcMapper {
+public class UserR2dbcMapper {
     public static UserEntity toEntity(User user) {
         return UserEntity.builder()
             .name(user.getName())

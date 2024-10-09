@@ -1,9 +1,12 @@
-package com.unsa.services.academics.laboratories.domain.models;
+package com.unsa.services.academics.laboratories.infrastructure.adapters.out.persistence.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +14,9 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Laboratory {
+@Table(name = "laboratories")
+public class LaboratoryEntity {
+    @Id
     private Long id;
     private Long courseId;
     private String section;

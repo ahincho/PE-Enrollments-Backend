@@ -2,7 +2,7 @@ package com.unsa.services.academics.users.infrastructure.adapters.out.persistenc
 
 import com.unsa.services.academics.users.application.ports.out.UserPersistencePort;
 import com.unsa.services.academics.users.domain.models.User;
-import com.unsa.services.academics.users.infrastructure.adapters.out.persistence.mappers.UserR2bcMapper;
+import com.unsa.services.academics.users.infrastructure.adapters.out.persistence.mappers.UserR2dbcMapper;
 import com.unsa.services.academics.users.infrastructure.adapters.out.persistence.repositories.UserR2dbcRepository;
 
 import org.springframework.stereotype.Service;
@@ -18,15 +18,19 @@ public class UserPersistenceSqlAdapter implements UserPersistencePort {
     }
     @Override
     public Mono<User> saveOneUser(User user) {
-        return this.userR2dbcRepository.save(UserR2bcMapper.toEntity(user)).map(UserR2bcMapper::toDomain);
+        return this.userR2dbcRepository.save(UserR2dbcMapper.toEntity(user)).map(UserR2dbcMapper::toDomain);
     }
     @Override
     public Flux<User> getAllUsers() {
-        return this.userR2dbcRepository.findAll().map(UserR2bcMapper::toDomain);
+        return this.userR2dbcRepository.findAll().map(UserR2dbcMapper::toDomain);
     }
     @Override
     public Mono<User> getOneUserById(Long id) {
-        return this.userR2dbcRepository.findById(id).map(UserR2bcMapper::toDomain);
+        return this.userR2dbcRepository.findById(id).map(UserR2dbcMapper::toDomain);
+    }
+    @Override
+    public Mono<User> getOneUserByEmail(String email) {
+        return this.userR2dbcRepository.findByEmail(email).map(UserR2dbcMapper::toDomain);
     }
     @Override
     public Mono<Void> updateOneUser(Long id, User user) {

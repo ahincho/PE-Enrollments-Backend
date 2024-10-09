@@ -11,11 +11,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Laboratory {
+public class Enrollment {
     private Long id;
-    private Long courseId;
-    private String section;
-    private Integer capacity;
+    private Long userId;
+    private Long laboratoryId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

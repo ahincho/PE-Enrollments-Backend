@@ -9,6 +9,7 @@ public interface UserPersistencePort {
     Mono<User> saveOneUser(User user);
     Flux<User> getAllUsers();
     Mono<User> getOneUserById(Long id);
+    Mono<User> getOneUserByEmail(String email);
     Mono<Void> updateOneUser(Long id, User user);
     Mono<Void> deleteOneUser(Long id);
 }
