@@ -10,3 +10,5 @@ spring:
     url: ${FLYWAY_URL:jdbc:postgresql://localhost:5432/enrollments}
     user: ${FLYWAY_USER:postgres}
     password: ${FLYWAY_PASSWORD:postgres}
+server:
+  port: 10000
