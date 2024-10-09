@@ -8,7 +8,7 @@ public class LaboratoryRestMapper {
     public static Laboratory createCommandToDomain(LaboratoryCreateCommand laboratoryCreateCommand) {
         return Laboratory.builder()
             .courseId(laboratoryCreateCommand.courseId())
-            .group(laboratoryCreateCommand.group())
+            .section(laboratoryCreateCommand.section())
             .capacity(laboratoryCreateCommand.capacity())
             .build();
     }
@@ -16,7 +16,7 @@ public class LaboratoryRestMapper {
         return LaboratoryResponse.builder()
             .id(laboratory.getId())
             .courseId(laboratory.getCourseId())
-            .group(laboratory.getGroup())
+            .section(laboratory.getSection())
             .capacity(laboratory.getCapacity())
             .createdAt(laboratory.getCreatedAt())
             .updatedAt(laboratory.getUpdatedAt())

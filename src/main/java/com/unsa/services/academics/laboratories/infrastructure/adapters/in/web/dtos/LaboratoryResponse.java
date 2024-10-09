@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class LaboratoryResponse {
     private Long id;
     private Long courseId;
-    private String group;
+    private String section;
     private Integer capacity;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

@@ -19,7 +19,7 @@ public class LaboratoryEntity {
     @Id
     private Long id;
     private Long courseId;
-    private String group;
+    private String section;
     private Integer capacity;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

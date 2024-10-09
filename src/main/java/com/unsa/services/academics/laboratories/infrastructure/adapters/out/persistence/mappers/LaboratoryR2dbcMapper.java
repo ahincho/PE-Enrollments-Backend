@@ -7,7 +7,7 @@ public class LaboratoryR2dbcMapper {
     public static LaboratoryEntity toEntity(Laboratory laboratory) {
         return LaboratoryEntity.builder()
             .courseId(laboratory.getCourseId())
-            .group(laboratory.getGroup())
+            .section(laboratory.getSection())
             .capacity(laboratory.getCapacity())
             .build();
     }
@@ -15,7 +15,7 @@ public class LaboratoryR2dbcMapper {
         return Laboratory.builder()
             .id(entity.getId())
             .courseId(entity.getCourseId())
-            .group(entity.getGroup())
+            .section(entity.getSection())
             .capacity(entity.getCapacity())
             .build();
     }

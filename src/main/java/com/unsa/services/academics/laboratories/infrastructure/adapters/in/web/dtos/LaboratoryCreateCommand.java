@@ -9,8 +9,8 @@ public record LaboratoryCreateCommand(
     @Min(value = 1, message = "User ID must be greater than 0")
     Long courseId,
     @NotNull(message = "Group must no be null")
-    @Size(min = 1, max = 2, message = "Group must contain 1 char or 2 chars at least")
-    String group,
+    @Size(min = 1, max = 2, message = "Section must contain 1 char or 2 chars at least")
+    String section,
     @Min(value = 1, message = "Capacity must be greater than 0")
     Integer capacity
 ) { }
