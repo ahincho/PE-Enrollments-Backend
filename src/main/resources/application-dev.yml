@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    problemdetails:
+      enabled: true
+  r2dbc:
+    url: ${R2DBC_URL:r2dbc:postgresql://localhost:5432/enrollments}
+    username: ${R2DBC_USERNAME:postgres}
+    password: ${R2DBC_PASSWORD:postgres}
+  flyway:
+    url: ${FLYWAY_URL:jdbc:postgresql://localhost:5432/enrollments}
+    user: ${FLYWAY_USER:postgres}
+    password: ${FLYWAY_PASSWORD:postgres}
